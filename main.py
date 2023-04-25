@@ -13,6 +13,7 @@ def index():
     datosObtenidos=requests.get('https://api.dailymotion.com/videos?channel=sport&limit=10')
     datosFormatoJSON=datosObtenidos.json()
     print(datosFormatoJSON)
+    print("intento 02 -----------")
 
     return render_template('index.html',datos=datosFormatoJSON['list'])
 
