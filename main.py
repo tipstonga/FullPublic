@@ -28,9 +28,9 @@ def index():
     plt.xlabel('Months')
     plt.ylabel('Books Read')
     print('salvo grafico sin mostrar')
-    plt.show()
+    # plt.show()
     # plt.savefig('http://127.0.0.1:8000/figUno.png')
-    # plt.savefig('templates/figUno.png')
+    plt.savefig('templates/figUno.png')
     # plt.savefig('templates/figUno.jpg')
 
 
