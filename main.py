@@ -1,11 +1,18 @@
 from flask import Flask, render_template
 import requests
 import numpy as numpy
+import os
 
+portname='PORT'
+if portname in os.environ:
+    portvalue=os.environ[portname]
+    print(portname,' value is', portvalue)
+else:
+    portvalue=8000
+    print(portname, 'does not exist uso ', portvalue)
 
-
+    
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
@@ -18,7 +25,8 @@ def index():
     return render_template('index.html',datos=datosFormatoJSON['list'])
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=portvalue, debug=True)
+##    app.run(host='0.0.0.0', port=8000, debug=True)
 ##    app.run(host='0.0.0.0', port=PORT, debug=True)
 ##    app.run(debug=True)
 ##    app.run(host='0.0.0.0', port=$PORT, debug=True)
