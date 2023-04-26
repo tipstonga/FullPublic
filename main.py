@@ -3,13 +3,18 @@ import requests
 import numpy as numpy
 import os
 
+
+## seleccion del host y port para 
+## Railway o local
 portname='PORT'
 if portname in os.environ:
     portvalue=os.environ[portname]
-    print(portname,' value is', portvalue)
+    hostvalue='0.0.0.0'
+    print(portname,' value is', portvalue,' ,  host is ',hostvalue)
 else:
     portvalue=8000
-    print(portname, 'does not exist uso ', portvalue)
+    hostvalue='127.0.0.1'
+    print(portname, 'does not exist using ', hostvalue, portvalue)
 
     
 app = Flask(__name__)
@@ -20,14 +25,11 @@ def index():
     datosObtenidos=requests.get('https://api.dailymotion.com/videos?channel=sport&limit=10')
     datosFormatoJSON=datosObtenidos.json()
     print(datosFormatoJSON)
-    print("intento 02 -----------")
+    print("version 03 -----------")
 
     return render_template('index.html',datos=datosFormatoJSON['list'])
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=portvalue, debug=True)
-##    app.run(host='0.0.0.0', port=8000, debug=True)
-##    app.run(host='0.0.0.0', port=PORT, debug=True)
-##    app.run(debug=True)
-##    app.run(host='0.0.0.0', port=$PORT, debug=True)
-##    app.run(host='127.0.0.1', port=8000, debug=True)
+    app.run(host=hostvalue, port=portvalue, debug=True)
+##     
+
