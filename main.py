@@ -19,7 +19,7 @@ else:
 
 exte='.png'
 prt=':'+str(portvalue)
-place='http://'+hostvalue+prt)        
+place='http://'+hostvalue+prt     
 finame=place+'/'+'fig1'+exte
 print('archivo = ',finame)
 
