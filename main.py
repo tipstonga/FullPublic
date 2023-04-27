@@ -29,9 +29,9 @@ def index():
     plt.ylabel('Books Read')
     print('salvo grafico sin mostrar')
     # plt.show()
-    plt.savefig('https://fullpublic-production.up.railway.app/figUno.png')
-    # plt.savefig('templates/figUno.png')
-    # plt.savefig('templates/figUno.jpg')
+    # plt.savefig('https://fullpublic-production.up.railway.app/figUno.png')
+    # plt.savefig('figUno.png')
+    plt.savefig('templates/figUno.jpg')
 
 
 ## trabajo basico web videos
