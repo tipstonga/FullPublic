@@ -17,7 +17,12 @@ else:
     hostvalue='127.0.0.1'
     print(portname, 'does not exist using ', hostvalue, portvalue)
 
-    
+exte='.png'
+prt=':'+str(portvalue)
+place='http://'+hostvalue+prt)        
+finame=place+'/'+'fig1'+exte
+print('archivo = ',finame)
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -28,19 +33,19 @@ def index():
     plt.xlabel('Months')
     plt.ylabel('Books Read')
     print('salvo grafico sin mostrar')
-    # plt.show()
-    # plt.savefig('https://fullpublic-production.up.railway.app/figUno.png')
-    # plt.savefig('figUno.png')
-    plt.savefig('templates/figUno.jpg')
+    ## plt.show()
+    ## plt.savefig('https://fullpublic-production.up.railway.app/figUno.png')
+    ## plt.savefig('figUno.png')
+    plt.savefig(finame)
 
 
 ## trabajo basico web videos
     datosObtenidos=requests.get('https://api.dailymotion.com/videos?channel=sport&limit=10')
     datosFormatoJSON=datosObtenidos.json()
     print(datosFormatoJSON)
-    print("version 04 -----------")
+    print("version 05 -----------")
 
-    return render_template('index.html',datos=datosFormatoJSON['list'])
+    return render_template('index.html',datos=datosFormatoJSON['list'],fname=finame)
 
 if __name__ == '__main__':
     app.run(host=hostvalue, port=portvalue, debug=True)
